@@ -35,10 +35,10 @@ public class EshopView {
 			switch (choice) {
 
 			case "1":
-				prod1.addProduct();
+				prod1.addProduc();
 				break;
 			case "2":
-				prod1.removeProduct(id);
+				prod1.removeProduct();
 				break;
 			case "3":
 				prod1.getProducts();

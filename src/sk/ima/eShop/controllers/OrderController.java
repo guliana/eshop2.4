@@ -1,5 +1,6 @@
 package sk.ima.eShop.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,30 +10,54 @@ import sk.ima.eShop.beans.Order;
 import sk.ima.eShop.beans.Product;
 
 public class OrderController {
-	ProductDaoImpl prod = new ProductDaoImpl();
+	//ProductDaoImpl prod = new ProductDaoImpl();
 	OrderDaoImpl orde = new OrderDaoImpl();
 	ProductController prod2 = new ProductController();
-	Product product = new Product();
+	//Product product = new Product();
 
-	Scanner sc = new Scanner(System.in);
+		private ProductDaoImpl prod;
+		private OrderDaoImpl orderDaoImpl;
+		
+		Scanner sc = new Scanner(System.in);
+		List<Product> order = new ArrayList<Product>();
+		List<Order> orders = orde.getAllOrders();
+		//List<Order> productOrder = new ArrayList<Order>();
 
-	private OrderDaoImpl orderDaoImpl;
-
-	public OrderController(OrderDaoImpl orderDaoImpl) {
+	public OrderController(OrderDaoImpl orderDaoImpl, ProductDaoImpl productDaopImpl) {
 		this.orderDaoImpl = orderDaoImpl;
+		//this.productDaoImpl = productDaoImpl;
 	}
 
 	public OrderController() {
 	}
 
 	public void addOrder() {
-		List<Product> pr= prod.getAllProducts();
-		System.out.println(pr.size());
 		System.out.println("Select product by its id");
-		 int id2 = sc.nextInt();
+		int id = sc.nextInt();
+		Product a = null;
+		List<Product> products = prod.getAllProducts();
+		System.out.println(products.size());
+		for (Product product : products) {
+			if (product.getId() == id) {
+				System.out.println(product);
+				a = (product);
+			}
+		}
+		order.add(a);
+		//orde.addOrder(order);
+		//prod.deleteProduct(a);
+		//productOrder.add(order); //
+		//treba produkt pridat do objednavky a objednavku do zoznamu objednavok"!
+	}
+	
+		/*System.out.println("Select product by its id");
+		int id2 = sc.nextInt();
+		List<Product> products = prod.getAllProducts();
+		System.out.println(products.size());
+		
 		List<Order> orders = orde.getAllOrders();
 	
-		for (Product product : pr) {
+		for (Product product : products) {
 			//for (int i = 0; i < products.size(); i++) {
 				System.out.println("gffffffffffffffffffffffff");
 			
@@ -44,8 +69,9 @@ public class OrderController {
 				
 				System.out.println("Your order: " + orde.toString());
 			}
-			}
 		}
+			}*/
+		
 	
 		// for (Product product : products) {
 		/*

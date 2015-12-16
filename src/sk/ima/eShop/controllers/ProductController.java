@@ -1,6 +1,5 @@
 package sk.ima.eShop.controllers;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -9,45 +8,47 @@ import sk.ima.eShop.DAO.ProductDaoImpl;
 import sk.ima.eShop.beans.Product;
 
 public class ProductController {
-	Product product = new Product();
 
 	Scanner sc = new Scanner(System.in);
 
+	int id = 1;
+
 	ProductDaoImpl prod = new ProductDaoImpl();
-
-	private ProductDaoImpl productDaoImpl;
-
-	public ProductController(ProductDaoImpl productDaoImpl) {
-		this.productDaoImpl = productDaoImpl;
-	}
 
 	public ProductController() {
 	}
 
-	int id = 1;
-
-	public void addProduct() {
-
+	public void addProduc() {
 		System.out.println("Add product name");
 		String productName = sc.next();
-		System.out.println("Add product price");
-		sc.useLocale(Locale.US);
-		double productPrice = sc.nextDouble();
-		System.out.println("Your product was added to Product list");
-		Product product = new Product(id, productName, productPrice);
-		prod.addProduct(product);
-		id++;
+		try {
+			System.out.println("Add product price");
+			sc.useLocale(Locale.US);
+			double productPrice = sc.nextDouble();
+			System.out.println("Your product was added to Product list");
+			Product product = new Product(id, productName, productPrice);
+			prod.addProduct(product);
+			// System.out.println(prod.toString());
+			id++;
+		} catch (Exception e) {
+			System.out.println(
+					"!!Your product has not been added to ProductList!!\n!!You have to write price in a number format!!");
+		}
 	}
 
-	public void removeProduct(int id)  {
+	public void removeProduct() {
 		System.out.println("Select product to remove by its id");
 		id = sc.nextInt();
+		Product a = null;
 		List<Product> products = prod.getAllProducts();
-					  for (Product product : products) { 
-				  if (product.getId() == id) {
-					  prod.deleteProduct(product);
-					}
-			  }
+		System.out.println(products.size());
+		for (Product product : products) {
+			if (product.getId() == id) {
+				System.out.println(product);
+				a = (product);
+			}
+		}
+		prod.deleteProduct(a);
 	}
 
 	public List<Product> getProducts() {

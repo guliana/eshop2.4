@@ -1,6 +1,7 @@
 package sk.ima.eShop.DAO;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import sk.ima.eShop.DAO.intrfc.ProductDAO;
@@ -29,13 +30,13 @@ public class ProductDaoImpl implements ProductDAO {
 	}
 
 	@Override
-	public void deleteProduct(Product product) {
-		products.remove(product);
-
+	public void addProduct(Product product) {
+		products.add(product);
 	}
 
 	@Override
-	public void addProduct(Product product) {
-		products.add(product);
+	public void deleteProduct(Product product) {
+		products.remove(product);
+		
 	}
 }

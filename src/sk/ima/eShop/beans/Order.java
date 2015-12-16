@@ -8,26 +8,27 @@ public class Order {
 	private double totalPrice;
 	private Product product;
 	private List<Product> products;
-	
-	public Order (int id, Product product) {
+
+	public Order() {
+	}
+
+	public Order(int id, Product product) {
 		this.id = id;
 		this.product = product;
-	
-		}
-	
-/*	public Order (int id, Product product) {
-		this.id = id;
-		this.product = product;
-		this.productCount = productCount;
-		this.totalPrize = totalPrize;
-		}*/
-	
-		public int getId() {
+
+	}
+
+	public int getId() {
 		return id;
 	}
-		public List<Product> getProducts () {
-			return products;
-		}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
 
 	public void setId(int id) {
 		this.id = id;
@@ -41,6 +42,18 @@ public class Order {
 		this.productCount = productCount;
 	}
 
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
 	public double getTotalPrice() {
 		return totalPrice;
 	}
@@ -48,8 +61,9 @@ public class Order {
 	public void setTotalPrize(double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+
 	public String toString() {
 		return " " + product;
-		
+
 	}
 }
