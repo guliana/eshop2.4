@@ -6,7 +6,7 @@ import java.util.List;
 import sk.ima.eShop.beans.Product;
 
 public interface ProductDAO {
-	
+
 	public List<Product> getAllProducts();
 	public Product getProduct(int id);
 	public void updateProduct(Product product);

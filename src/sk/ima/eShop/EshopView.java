@@ -9,8 +9,6 @@ import sk.ima.eShop.beans.Product;
 import sk.ima.eShop.controllers.OrderController;
 import sk.ima.eShop.controllers.ProductController;
 
-
-
 public class EshopView {
 	ProductDaoImpl prod = new ProductDaoImpl();
 	ProductController prod1 = new ProductController();

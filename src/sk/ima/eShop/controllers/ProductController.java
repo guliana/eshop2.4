@@ -13,7 +13,7 @@ public class ProductController {
 
 	int id = 1;
 
-	ProductDaoImpl prod = new ProductDaoImpl();
+	public static ProductDaoImpl prod = new ProductDaoImpl();
 
 	public ProductController() {
 	}
@@ -21,19 +21,16 @@ public class ProductController {
 	public void addProduc() {
 		System.out.println("Add product name");
 		String productName = sc.next();
-		try {
-			System.out.println("Add product price");
-			sc.useLocale(Locale.US);
-			double productPrice = sc.nextDouble();
-			System.out.println("Your product was added to Product list");
-			Product product = new Product(id, productName, productPrice);
-			prod.addProduct(product);
-			// System.out.println(prod.toString());
-			id++;
-		} catch (Exception e) {
-			System.out.println(
-					"!!Your product has not been added to ProductList!!\n!!You have to write price in a number format!!");
-		}
+		System.out.println("Add product price");
+		double productPrice = sc.nextDouble();
+		sc.useLocale(Locale.US);
+		// System.out.println("!!Your product has not been added to
+		// ProductList!!\n!!You have to write price in a number format!!");
+		System.out.println("Your product was added to Product list");
+		Product product = new Product(id, productName, productPrice);
+		prod.addProduct(product);
+		id++;
+
 	}
 
 	public void removeProduct() {
@@ -41,7 +38,6 @@ public class ProductController {
 		id = sc.nextInt();
 		Product a = null;
 		List<Product> products = prod.getAllProducts();
-		System.out.println(products.size());
 		for (Product product : products) {
 			if (product.getId() == id) {
 				System.out.println(product);

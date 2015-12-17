@@ -3,6 +3,7 @@ package sk.ima.eShop.DAO.intrfc;
 import java.util.List;
 
 import sk.ima.eShop.beans.Order;
+import sk.ima.eShop.beans.Product;
 
 public interface OrderDAO {
 	public List<Order> getAllOrders();
@@ -10,4 +11,5 @@ public interface OrderDAO {
 	public void updateOrder(Order order);
 	public void deleteOrder(Order order);
 	public void addOrder(Order order);
+
 }

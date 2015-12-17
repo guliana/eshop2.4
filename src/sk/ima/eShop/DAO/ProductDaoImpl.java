@@ -39,4 +39,6 @@ public class ProductDaoImpl implements ProductDAO {
 		products.remove(product);
 		
 	}
+
+
 }

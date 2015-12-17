@@ -1,33 +1,45 @@
 package sk.ima.eShop.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
 	private int id;
 	private int productCount;
 	private double totalPrice;
-	private Product product;
-	private List<Product> products;
+	
+	private List<Product> order = new ArrayList<>();
 
 	public Order() {
 	}
 
+	public Order(int id, List<Product> products)
+	{
+		this.id = id;
+		order = products;
+	}
+	
 	public Order(int id, Product product) {
 		this.id = id;
-		this.product = product;
+		order.add(product);
 
 	}
 
 	public int getId() {
 		return id;
 	}
-
+	
+	public void addProduct(Product p)
+	{
+		order.add(p);
+	}
+	
 	public void setProducts(List<Product> products) {
-		this.products = products;
+		this.order = products;
 	}
 
 	public List<Product> getProducts() {
-		return products;
+		return order;
 	}
 
 	public void setId(int id) {
@@ -40,14 +52,6 @@ public class Order {
 
 	public void setProductCount(int productCount) {
 		this.productCount = productCount;
-	}
-
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
 	}
 
 	public void setTotalPrice(double totalPrice) {
@@ -63,7 +67,7 @@ public class Order {
 	}
 
 	public String toString() {
-		return " " + product;
+		return "helol ";
 
 	}
 }
